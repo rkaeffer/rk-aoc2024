@@ -13,40 +13,34 @@ import java.util.Arrays;
 public class Day1Test {
 
     ArrayList<String> inputTest = new ArrayList<>(Arrays.asList(
-            "1abc2",
-            "pqr3stu8vwx",
-            "a1b2c3d4e5f",
-            "treb7uchet"
-    ));
-
-    ArrayList<String> secondInputTest = new ArrayList<>(Arrays.asList(
-            "two1nine",
-            "eightwothree",
-            "abcone2threexyz",
-            "xtwone3four",
-            "4nineeightseven2",
-            "zoneight234",
-            "7pqrstsixteen"
+            "3   4",
+            "4   3",
+            "2   5",
+            "1   3",
+            "3   9",
+            "3   3"
     ));
 
     @Test
-    public void testSumCalibrationValues() {
-        MatcherAssert.assertThat("Sum of calibration is 142", Day1.getCalibrationsSum(inputTest, false), Matchers.equalTo(142L));
+    public void testDistanceAppart() {
+        MatcherAssert.assertThat("Sum of distance is 11", Day1.getSumAppart(inputTest), Matchers.equalTo(11L));
     }
 
     @Test
-    public void testSumCalibrationValuesWithLetters() {
-        MatcherAssert.assertThat("Sum of calibration is 281", Day1.getCalibrationsSum(secondInputTest, true), Matchers.equalTo(281L));
+    public void testSimilarityScore() {
+        MatcherAssert.assertThat(" Similarity score is 31", Day1.getSimilarityScore(inputTest), Matchers.equalTo(31L));
     }
+
 
     @Test
     public void getFirstChallengeResult() {
-        FileUtils.readInputFileAsList("input.txt", 1).ifPresent(lines -> log.info("The answer is {}", Day1.getCalibrationsSum(lines, false)));
+        FileUtils.readInputFileAsList("input.txt", 1).ifPresent(lines -> log.info("The answer is {}", Day1.getSumAppart(lines)));
     }
 
     @Test
     public void getSecondChallengeResult() {
-        FileUtils.readInputFileAsList("input.txt", 1).ifPresent(lines -> log.info("The answer is {}", Day1.getCalibrationsSum(lines, true)));
+        FileUtils.readInputFileAsList("input.txt", 1).ifPresent(lines -> log.info("The answer is {}", Day1.getSimilarityScore(lines)));
     }
+
 
 }
